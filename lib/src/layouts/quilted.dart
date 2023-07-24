@@ -416,6 +416,15 @@ extension on List<QuiltedGridTile> {
 
         maxMainAxisCellCounts[fullIndex] = offsets.reduce(math.max);
       }
+      if (indexes != null) {
+        int maxKey = indexes.keys.reduce((a, b) => a > b ? a : b);
+
+        for (int i = 0; i <= maxKey; i++) {
+          if (!indexes.containsKey(i)) {
+            indexes[i] = -1;
+          }
+        }
+      }
     }
 
     position(this, indexes, 0);
